@@ -8,6 +8,7 @@ import(
 
 func main(){
 	//fmt.Println("makefile working")
+	//local storage
 	receiptStore = make(map[string]Receipt)
 
 	server := NewAPIServer(":3000")

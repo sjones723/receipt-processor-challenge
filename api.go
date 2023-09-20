@@ -15,23 +15,6 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// interfaces
-type Receipt struct {
-	ID           string    `json:"id"`
-	Retailer     string `json:"retailer"`
-	PurchaseDate string `json:"purchaseDate"`
-	PurchaseTime string `json:"purchaseTime"`
-	Total        string `json:"total"`
-	Items        []Item `json:"items"`
-}
-
-type Item struct {
-	ShortDescription string `json:"shortDescription"`
-	Price string `json:"price"`
-}
-
-//local storage
-var receiptStore map[string]Receipt
 
 
 // encode a given (v)alue as JSON ~ json.NewEncoder
@@ -55,6 +38,7 @@ func makeHTTPHandleFunc(f apiFunc) http.HandlerFunc {
 	}
 }
 
+
 type APIServer struct {
 	listenAddr string
 }
@@ -65,7 +49,7 @@ func NewAPIServer(listenAddr string) *APIServer {
 	}
 }
 
-// controller function to start server 
+// controller, function to start server 
 func (s *APIServer) Run() {
 	// mux router
 	router := mux.NewRouter()
