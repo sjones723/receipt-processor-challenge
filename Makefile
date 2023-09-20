@@ -3,3 +3,6 @@ build:
 
 run: build
 	@./bin/receipt-processor-challenge
+
+install:
+	go mod download

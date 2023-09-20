@@ -1,6 +1,6 @@
 package main
 
-// interfaces
+// models
 type Receipt struct {
 	ID           string `json:"id"`
 	Retailer     string `json:"retailer"`
@@ -15,5 +15,5 @@ type Item struct {
 	Price string `json:"price"`
 }
 
-// local storage
+//local storage
 var receiptStore map[string]Receipt

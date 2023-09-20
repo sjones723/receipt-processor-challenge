@@ -76,7 +76,15 @@ func (s *APIServer) handleReturnAllReceipts(w http.ResponseWriter, r *http.Reque
 	return WriteJSON(w, http.StatusOK, receipts)
 }
 
-
+// Implement the /receipts/process endpoint
+// @Summary Submits a receipt for processing
+// @Description Submits a receipt for processing
+// @Accept json
+// @Produce json
+// @Param req body Receipt true "Receipt object to process"
+// @Success 200 {object} map[string]string
+// @Failure 400 {object} apiError
+// @Router /receipts/process [post]
 func (s *APIServer) handleAssignUUID(w http.ResponseWriter, r *http.Request) error {
 
 	if r.Method != "POST" {
@@ -104,7 +112,15 @@ func (s *APIServer) handleAssignUUID(w http.ResponseWriter, r *http.Request) err
 
 }
 
-
+// Implement the /receipts/{id}/points endpoint
+// @Summary Returns the points awarded for the receipt
+// @Description Returns the points awarded for the receipt
+// @Accept json
+// @Produce json
+// @Param id path string true "ID of the receipt"
+// @Success 200 {object} map[string]int
+// @Failure 404 {object} apiError
+// @Router /receipts/{id}/points [get]
 func (s *APIServer) handleCalculatePoints(w http.ResponseWriter, r *http.Request) error {
 
 	if r.Method != "GET" {
