@@ -1,8 +1,6 @@
 package main
 
-import( 
-//"fmt",
-)
+import( )
 
 // OpenAPI annotations
 // @title Receipt Processor
